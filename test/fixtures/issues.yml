@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  magazine_id: 1
+  issue_date: 2012-08-04
+  title: MyString
+
+two:
+  magazine_id: 1
+  issue_date: 2012-08-04
+  title: MyString

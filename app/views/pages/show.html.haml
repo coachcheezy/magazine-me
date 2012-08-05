@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Issue:
+  = @page.issue_id
+%p
+  %b Page number:
+  = @page.page_number
+%p
+  %b Content:
+  = @page.content
+
+= link_to 'Edit', edit_magazine_issue_page_path(@magazine, @issue, @page)
+\|
+= link_to 'Back', magazine_issue_pages_path(@magazine, @issue)

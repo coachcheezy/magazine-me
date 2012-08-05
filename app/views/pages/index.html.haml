@@ -1,0 +1,23 @@
+%h1 Listing pages
+
+%table
+  %tr
+    %th Issue
+    %th Page number
+    %th Content
+    %th
+    %th
+    %th
+
+  - @pages.each do |page|
+    %tr
+      %td= page.issue.title
+      %td= page.page_number
+      %td= page.content
+      %td= link_to 'Edit', edit_magazine_issue_page_path(@magazine, @issue, page)
+      %td= link_to 'Destroy', [@magazine, @issue, page], :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Page', new_magazine_issue_page_path(@magazine, @issue)
+= link_to 'Back to Issue List', magazine_issues_path

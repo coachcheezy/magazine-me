@@ -1,0 +1,23 @@
+%h1 Listing magazines
+
+%table
+  %tr
+    %th Name
+    %th Description
+    %th Publication date
+    %th
+    %th
+    %th
+
+  - @magazines.each do |magazine|
+    %tr
+      %td= magazine.name
+      %td= magazine.description
+      %td= magazine.publication_date
+      %td= link_to 'Issues', magazine_issues_path(magazine)
+      %td= link_to 'Edit', edit_magazine_path(magazine)
+      %td= link_to 'Destroy', magazine, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Magazine', new_magazine_path

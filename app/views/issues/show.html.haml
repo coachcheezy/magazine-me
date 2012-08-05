@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Magazine:
+  = @issue.magazine.name
+%p
+  %b Issue date:
+  = @issue.issue_date
+%p
+  %b Title:
+  = @issue.title
+
+= link_to 'Edit', edit_magazine_issue_path(@magazine, @issue)
+\|
+= link_to 'Back', magazine_issues_path(@magazine)
