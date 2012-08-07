@@ -13,7 +13,6 @@
     %tr
       %td= page.issue.title
       %td= page.page_number
-      %td= page.content
       %td= link_to 'Edit', edit_magazine_issue_page_path(@magazine, @issue, page)
       %td= link_to 'Destroy', [@magazine, @issue, page], :confirm => 'Are you sure?', :method => :delete
 

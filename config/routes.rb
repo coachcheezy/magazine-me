@@ -1,5 +1,14 @@
 Mags::Application.routes.draw do
-  resources :pages
+  
+  namespace :api do
+    namespace :v1 do
+      controller :magazines do
+        get   ':format/magazines' => :index
+        get   ':format/magazine/:magazine_id/issues' => :issues
+        get   ':format/magazine/:magazine_id/issue/:id/pages' => :pages, :as => :pages
+      end
+    end
+  end
 
   resources :magazines do
     resources :issues do
@@ -10,14 +19,6 @@ Mags::Application.routes.draw do
   get "home/index"
   root :to => "home#index"
   
-  namespace :api do
-    namespace :v1 do
-      controller :magazines do
-        get   ':format/magazines' => :index
-      end
-    end
-  end
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

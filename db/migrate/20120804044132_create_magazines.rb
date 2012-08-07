@@ -4,6 +4,7 @@ class CreateMagazines < ActiveRecord::Migration
       t.string :name
       t.text :description
       t.date :publication_date
+      t.integer :user_id
 
       t.timestamps
     end

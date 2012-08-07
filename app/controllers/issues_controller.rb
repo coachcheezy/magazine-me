@@ -46,10 +46,11 @@ class IssuesController < ApplicationController
   def create
     @magazine = Magazine.find(params[:magazine_id])
     @issue = @magazine.issues.create(params[:issue])
+    @issue.uuid = UUID.new.generate
 
     respond_to do |format|
       if @issue.save
-        format.html { redirect_to magazine_issues_path(@magazine, @issue), notice: 'Issue was successfully created.' }
+        format.html { redirect_to magazine_issues_path(@magazine), notice: 'Issue was successfully created.' }
         format.json { render json: @issue, status: :created, location: @issue }
       else
         format.html { render action: "new" }
@@ -57,7 +58,7 @@ class IssuesController < ApplicationController
       end
     end
   end
-
+  
   # PUT /issues/1
   # PUT /issues/1.json
   def update

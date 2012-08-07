@@ -46,8 +46,10 @@ module Mags
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
     
-    # config.middleware.use Rack::Throttle::Interval, :min => 3.0
-    
+    config.middleware.use Rack::Throttle::Daily, :max => 100000
+    config.middleware.use Rack::Throttle::Hourly, :max => 10000
+    config.middleware.use Rack::Throttle::Interval, :min => 1  
+
     config.generators do |g|
       g.template_engine :haml
     end

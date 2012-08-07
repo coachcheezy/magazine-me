@@ -3,7 +3,7 @@ class MagazinesController < ApplicationController
   # GET /magazines.json
   def index
     @magazines = Magazine.all
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @magazines }
@@ -41,6 +41,7 @@ class MagazinesController < ApplicationController
   # POST /magazines.json
   def create
     @magazine = Magazine.new(params[:magazine])
+    @magazine.uuid = UUID.new.generate
 
     respond_to do |format|
       if @magazine.save
